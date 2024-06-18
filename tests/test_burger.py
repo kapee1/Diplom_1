@@ -1,6 +1,5 @@
 from praktikum.burger import Burger
 from unittest.mock import Mock
-import pytest
 
 
 class TestBurger:
@@ -43,7 +42,7 @@ class TestBurger:
         burger = Burger()
         mock_ingredient = Mock()
         mock_bun = Mock()
-        mock_bun.get_price.return_value = 3 # цена за одну булочку, в бургере их две
+        mock_bun.get_price.return_value = 3  # цена за одну булочку, в бургере их две
         mock_ingredient.get_price.return_value = 2.5
         burger.set_buns(mock_bun)
         burger.add_ingredient(mock_ingredient)
@@ -64,4 +63,3 @@ class TestBurger:
         expected_result = ('(==== Пшеничная булочка ====)\n''= начинка Лист салата =\n'
                            '(==== Пшеничная булочка ====)\n''\n''Price: 126.1')
         assert burger.get_receipt() == expected_result
-
